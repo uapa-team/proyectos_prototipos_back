@@ -1,0 +1,4 @@
+node_modules
+cert.pem
+database.sqlite3
+settings.js

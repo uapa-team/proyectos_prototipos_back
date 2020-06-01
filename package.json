@@ -1,0 +1,44 @@
+{
+  "name": "tpi-expoideas",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "^2.686.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "jquery": "^3.5.1",
+    "ldapauth-fork": "^4.3.3",
+    "node-pre-gyp": "^0.15.0",
+    "promise": "^8.1.0",
+    "sqlite3": "^4.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "migrate": "node ./migrate.js",
+    "seed": "node ./seed.js",
+    "app": "node ./app.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "file-loader": "^6.0.0"
+  }
+}
