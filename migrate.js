@@ -4,10 +4,10 @@ const db = new sqlite3.Database("database.sqlite3");
 db.serialize(() => {
   db.run("DROP TABLE IF EXISTS videos");
   db.run(
-    "CREATE TABLE videos (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-      "video_key VARCHAR(255), " +
-      "image_name VARCHAR(255)," +
-      "team_name VARCHAR(255))",
+    "CREATE TABLE videos (" +
+      "video_key VARCHAR(255) PRIMARY KEY, " +
+      "team_name VARCHAR(255), " +
+      "description VARCHAR(2550))",
     (_, err) => {
       if (err) console.error(err);
     }
@@ -25,6 +25,7 @@ db.serialize(() => {
   db.run("DROP TABLE IF EXISTS comments");
   db.run(
     "CREATE TABLE comments (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+      "video_key VARCHAR(255)," +
       "full_name VARCHAR(255), " +
       "comment VARCHAR(2550), " +
       "date VARCHAR(10))",
@@ -43,8 +44,5 @@ db.serialize(() => {
       if (err) console.error(err);
     }
   );
-  // db.each("SELECT user FROM professors", (err, row) => {
-  //   console.log(row.user);
-  // });
 });
 db.close();
