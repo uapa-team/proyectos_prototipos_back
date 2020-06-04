@@ -4,7 +4,7 @@ const db = new sqlite3.Database("database.sqlite3");
 db.serialize(() => {
   db.run(
     "INSERT INTO videos (video_key, team_name, description)" +
-      "VALUES ('3VZFpwlXKpg','Team Demo Test', 'Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto.')"
+      "VALUES ('3VZFpwlXKpg','Globber Trotters', 'Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. ')"
   );
   db.run(
     "INSERT INTO videos (video_key, team_name, description)" +
@@ -49,6 +49,30 @@ db.serialize(() => {
   db.run(
     "INSERT INTO comments (video_key, full_name, comment, date) " +
       "VALUES ('3VZFpwlXKpg', 'Marcela Vega', 'Me encantó su prototipo, chicos. Sigan así!', '28-05-2020')"
+  );
+  db.run(
+    "INSERT INTO responses (full_name, response, date, comment_id)" +
+      " VALUES('Daniel Escobar', 'Respuesta #1', '03-06-20200', 1)"
+  );
+  db.run(
+    "INSERT INTO responses (full_name, response, date, comment_id)" +
+      " VALUES('Daniel Escobar', 'Respuesta #2', '03-06-20200', 1)"
+  );
+  db.run(
+    "INSERT INTO responses (full_name, response, date, comment_id)" +
+      " VALUES('Daniel Escobar', 'Respuesta #3', '03-06-20200', 1)"
+  );
+  db.run(
+    "INSERT INTO responses (full_name, response, date, comment_id)" +
+      " VALUES('Daniel Escobar', 'Respuesta #1', '03-06-20200', 2)"
+  );
+  db.run(
+    "INSERT INTO responses (full_name, response, date, comment_id)" +
+      " VALUES('Daniel Escobar', 'Respuesta #2', '03-06-20200', 2)"
+  );
+  db.run(
+    "INSERT INTO responses (full_name, response, date, comment_id)" +
+      " VALUES('Daniel Escobar', 'Respuesta #3', '03-06-20200', 2)"
   );
 });
 db.close();
