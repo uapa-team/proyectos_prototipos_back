@@ -106,7 +106,6 @@ app.post("/comment/:video_key", (req, res) => {
 });
 app.get("/responses/:id", (req, res) => {
   try {
-    console.log(`SELECT * FROM comments WHERE comment_id = '${req.params.id}'`);
     db.all(
       `SELECT * FROM responses WHERE comment_id = '${req.params.id}'`,
       (err, rows) => {
@@ -143,13 +142,6 @@ app.post("/respond/:comment_id", (req, res) => {
     )}`;
   }
   try {
-    console.log(
-      `INSERT INTO responses (full_name, response, date, comment_id) ` +
-        `VALUES ('${titleCase(req.body.full_name)}', '${
-          req.body.response[0].toUpperCase() +
-          req.body.response.substr(1, req.body.response.lenght)
-        }', '${date}', ${req.params.comment_id})`
-    );
     db.run(
       `INSERT INTO responses (full_name, response, date, comment_id) ` +
         `VALUES ('${titleCase(req.body.full_name)}', '${

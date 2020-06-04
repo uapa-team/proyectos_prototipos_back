@@ -12,16 +12,6 @@ db.serialize(() => {
       if (err) console.error(err);
     }
   );
-  db.run("DROP TABLE IF EXISTS teams");
-  db.run(
-    "CREATE TABLE teams (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-      "team_name VARCHAR(255), " +
-      "username VARCHAR(255), " +
-      "full_name VARCHAR(255))",
-    (_, err) => {
-      if (err) console.error(err);
-    }
-  );
   db.run("DROP TABLE IF EXISTS comments");
   db.run(
     "CREATE TABLE comments (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
