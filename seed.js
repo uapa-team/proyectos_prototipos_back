@@ -4,7 +4,7 @@ const db = new sqlite3.Database("database.sqlite3");
 db.serialize(() => {
   db.run(
     "INSERT INTO videos (video_key, team_name, description)" +
-      "VALUES ('3VZFpwlXKpg','Globber Trotters', 'Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. Este es un equipo de pruebas, solo es un ejemplo, por favor no leas esto. ')"
+      "VALUES ('3VZFpwlXKpg','Globber Trotters', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')"
   );
   db.run(
     "INSERT INTO videos (video_key, team_name, description)" +
@@ -40,39 +40,39 @@ db.serialize(() => {
   );
   db.run(
     "INSERT INTO comments (video_key, full_name, comment, date) " +
-      "VALUES ('3VZFpwlXKpg', 'Tatiana Moreno', 'Me encantó su prototipo, chicos. Sigan así!', '30-05-2020')"
+      "VALUES ('3VZFpwlXKpg', 'Tatiana Moreno', '¿Qué material usaron para elaborar el prototipo?', '30-05-2020')"
+  );
+  db.run(
+    "INSERT INTO comments (video_key, full_name, comment, date) " +
+      "VALUES ('3VZFpwlXKpg', 'Marcela Vega', '¿Cómo garantizan la sostenibilidad de la compañía a largo plazo?', '28-05-2020')"
   );
   db.run(
     "INSERT INTO comments (video_key, full_name, comment, date) " +
       "VALUES ('3VZFpwlXKpg', 'Daniel Escobar', 'Me encantó su prototipo, chicos. Sigan así!', '29-05-2020')"
   );
   db.run(
-    "INSERT INTO comments (video_key, full_name, comment, date) " +
-      "VALUES ('3VZFpwlXKpg', 'Marcela Vega', 'Me encantó su prototipo, chicos. Sigan así!', '28-05-2020')"
+    "INSERT INTO responses (full_name, response, date, comment_id)" +
+      " VALUES('Antonio Suarez', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum', '03-06-2020', 1)"
   );
   db.run(
     "INSERT INTO responses (full_name, response, date, comment_id)" +
-      " VALUES('Daniel Escobar', 'Respuesta #1', '03-06-20200', 1)"
+      " VALUES('Angel Corredor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum', '03-06-20200', 1)"
   );
   db.run(
     "INSERT INTO responses (full_name, response, date, comment_id)" +
-      " VALUES('Daniel Escobar', 'Respuesta #2', '03-06-20200', 1)"
+      " VALUES('Nicolás Gómez', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum', '03-06-20200', 1)"
   );
   db.run(
     "INSERT INTO responses (full_name, response, date, comment_id)" +
-      " VALUES('Daniel Escobar', 'Respuesta #3', '03-06-20200', 1)"
+      " VALUES('Daniel Escobar', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum', '03-06-20200', 2)"
   );
   db.run(
     "INSERT INTO responses (full_name, response, date, comment_id)" +
-      " VALUES('Daniel Escobar', 'Respuesta #1', '03-06-20200', 2)"
+      " VALUES('Daniel Escobar', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum', '03-06-20200', 2)"
   );
   db.run(
     "INSERT INTO responses (full_name, response, date, comment_id)" +
-      " VALUES('Daniel Escobar', 'Respuesta #2', '03-06-20200', 2)"
-  );
-  db.run(
-    "INSERT INTO responses (full_name, response, date, comment_id)" +
-      " VALUES('Daniel Escobar', 'Respuesta #3', '03-06-20200', 2)"
+      " VALUES('Daniel Escobar', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum', '03-06-20200', 2)"
   );
 });
 db.close();

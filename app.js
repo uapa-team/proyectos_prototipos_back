@@ -4,11 +4,6 @@
 // const fs = require("fs");
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("database.sqlite3");
-function titleCase(str) {
-  return str.replace(/\w\S*/g, function (txt) {
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-  });
-}
 app = require("express")();
 app.use(require("body-parser").json());
 app.use(require("cors")());
@@ -82,6 +77,11 @@ app.post("/comment/:video_key", (req, res) => {
       4
     )}`;
   }
+  function titleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
   try {
     db.run(
       `INSERT INTO comments (video_key, full_name, comment, date) ` +
@@ -93,10 +93,27 @@ app.post("/comment/:video_key", (req, res) => {
         }', '${date}')`,
       (err, _) => {
         if (err) {
-          res.status(500).json({ error1: err });
+          res.status(500).json({ error: err });
           return;
         }
-        res.json({ inserted: { date: date, ...req.body } });
+        try {
+          db.get(
+            `SELECT * FROM comments WHERE video_key = '${req.params.video_key}' and ` +
+              ` full_name = '${titleCase(
+                req.body.full_name
+              )}' and date = '${date}' ORDER BY id DESC LIMIT 1`,
+            (err, inserted) => {
+              if (err) {
+                res.status(500).json({ error: err });
+                return;
+              }
+              res.json({ inserted: inserted });
+            }
+          );
+        } catch (err) {
+          res.status(500).json({ error: err });
+          return;
+        }
       }
     );
   } catch (err) {
@@ -121,7 +138,7 @@ app.get("/responses/:id", (req, res) => {
   }
 });
 app.post("/respond/:comment_id", (req, res) => {
-  if (!req.body.full_name || !req.body.response || !req.body.comment_id) {
+  if (!req.body.full_name || !req.body.response || !req.params.comment_id) {
     res.status(400).json({ error: "Bad Request" });
     return;
   }
@@ -141,6 +158,11 @@ app.post("/respond/:comment_id", (req, res) => {
       4
     )}`;
   }
+  function titleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
   try {
     db.run(
       `INSERT INTO responses (full_name, response, date, comment_id) ` +
@@ -153,7 +175,24 @@ app.post("/respond/:comment_id", (req, res) => {
           res.status(500).json({ error: err });
           return;
         }
-        res.json({ inserted: { date: date, ...req.body } });
+        try {
+          db.get(
+            `SELECT * FROM responses WHERE comment_id = '${req.params.comment_id}' and ` +
+              ` full_name = '${titleCase(
+                req.body.full_name
+              )}' and date = '${date}' ORDER BY id DESC LIMIT 1`,
+            (err, inserted) => {
+              if (err) {
+                res.status(500).json({ err: err });
+                return;
+              }
+              res.json({ inserted: inserted });
+            }
+          );
+        } catch (err) {
+          res.status(500).json({ err: err });
+          return;
+        }
       }
     );
   } catch (err) {
