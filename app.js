@@ -83,6 +83,15 @@ app.post("/proyectos_prototipos_api/comment/:video_key", (req, res) => {
     });
   }
   try {
+    console.log(
+      `INSERT INTO comments (video_key, full_name, comment, date) ` +
+        `VALUES ('${req.params.video_key}', '${titleCase(
+          req.body.full_name
+        )}', '${
+          req.body.comment[0].toUpperCase() +
+          req.body.comment.substr(1, req.body.comment.lenght)
+        }', '${date}')`
+    );
     db.run(
       `INSERT INTO comments (video_key, full_name, comment, date) ` +
         `VALUES ('${req.params.video_key}', '${titleCase(
