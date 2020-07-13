@@ -199,6 +199,9 @@ app.post("/proyectos_prototipos_api/respond/:comment_id", (req, res) => {
     res.status(500).json({ err: err });
   }
 });
+app.get("/proyectos_prototipos_api/", (_, res) => {
+  res.json({ status: "working" });
+});
 const port = process.env.PORT || 4001;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
