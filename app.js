@@ -10,7 +10,7 @@ app.use(require("cors")());
 app.get("/", (req, res) => {
   res.json({ ok: "App is runnig" });
 });
-app.get("/videos", (_, res) => {
+app.get("/proyectos_prototipos_api/videos", (_, res) => {
   try {
     db.all("SELECT * FROM videos", (err, rows) => {
       if (err) {
@@ -25,7 +25,7 @@ app.get("/videos", (_, res) => {
     return;
   }
 });
-app.get("/comments/:video_key", (req, res) => {
+app.get("/proyectos_prototipos_api/comments/:video_key", (req, res) => {
   try {
     db.all(
       `SELECT * FROM comments WHERE video_key = '${req.params.video_key}'`,
@@ -56,7 +56,7 @@ app.get("/comments/:video_key", (req, res) => {
     return;
   }
 });
-app.post("/comment/:video_key", (req, res) => {
+app.post("/proyectos_prototipos_api/comment/:video_key", (req, res) => {
   if (!req.params.video_key || !req.body.full_name || !req.body.comment) {
     res.status(400).json({ error: "Bad request" });
     return;
@@ -121,7 +121,7 @@ app.post("/comment/:video_key", (req, res) => {
     return;
   }
 });
-app.get("/responses/:id", (req, res) => {
+app.get("/proyectos_prototipos_api/responses/:id", (req, res) => {
   try {
     db.all(
       `SELECT * FROM responses WHERE comment_id = '${req.params.id}'`,
@@ -137,7 +137,7 @@ app.get("/responses/:id", (req, res) => {
     res.status(500).json({ error: err });
   }
 });
-app.post("/respond/:comment_id", (req, res) => {
+app.post("/proyectos_prototipos_api/respond/:comment_id", (req, res) => {
   if (!req.body.full_name || !req.body.response || !req.params.comment_id) {
     res.status(400).json({ error: "Bad Request" });
     return;
