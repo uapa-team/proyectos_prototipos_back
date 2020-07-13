@@ -199,7 +199,7 @@ app.post("/respond/:comment_id", (req, res) => {
     res.status(500).json({ err: err });
   }
 });
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 4001;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

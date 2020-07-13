@@ -7,7 +7,9 @@ db.serialize(() => {
     "CREATE TABLE videos (" +
       "video_key VARCHAR(255) PRIMARY KEY, " +
       "team_name VARCHAR(255), " +
-      "description VARCHAR(2550))",
+      "poster_url VARCHAR(255)," +
+      "description VARCHAR(2550)," +
+      "subject VARCHAR(255))",
     (_, err) => {
       if (err) console.error(err);
     }
