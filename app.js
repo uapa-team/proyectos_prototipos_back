@@ -10,7 +10,7 @@ app.use(require("cors")());
 app.get("/", (req, res) => {
   res.json({ ok: "App is runnig" });
 });
-app.get("/proyectos_prototipos_api/videos", (_, res) => {
+app.get("/primiferia_bienestar_api/videos", (_, res) => {
   try {
     db.all("SELECT * FROM videos", (err, rows) => {
       if (err) {
@@ -25,7 +25,7 @@ app.get("/proyectos_prototipos_api/videos", (_, res) => {
     return;
   }
 });
-app.get("/proyectos_prototipos_api/comments/:video_key", (req, res) => {
+app.get("/primiferia_bienestar_api/comments/:video_key", (req, res) => {
   console.log(req.params.video_key);
   try {
     db.all(
@@ -57,7 +57,7 @@ app.get("/proyectos_prototipos_api/comments/:video_key", (req, res) => {
     return;
   }
 });
-app.post("/proyectos_prototipos_api/comment/:video_key", (req, res) => {
+app.post("/primiferia_bienestar_api/comment/:video_key", (req, res) => {
   if (!req.params.video_key || !req.body.full_name || !req.body.comment) {
     res.status(400).json({ error: "Bad request" });
     return;
@@ -122,7 +122,7 @@ app.post("/proyectos_prototipos_api/comment/:video_key", (req, res) => {
     return;
   }
 });
-app.get("/proyectos_prototipos_api/responses/:id", (req, res) => {
+app.get("/primiferia_bienestar_api/responses/:id", (req, res) => {
   try {
     db.all(
       `SELECT * FROM responses WHERE comment_id = '${req.params.id}'`,
@@ -138,7 +138,7 @@ app.get("/proyectos_prototipos_api/responses/:id", (req, res) => {
     res.status(500).json({ error: err });
   }
 });
-app.post("/proyectos_prototipos_api/respond/:comment_id", (req, res) => {
+app.post("/primiferia_bienestar_api/respond/:comment_id", (req, res) => {
   if (!req.body.full_name || !req.body.response || !req.params.comment_id) {
     res.status(400).json({ error: "Bad Request" });
     return;
@@ -200,7 +200,7 @@ app.post("/proyectos_prototipos_api/respond/:comment_id", (req, res) => {
     res.status(500).json({ err: err });
   }
 });
-app.get("/proyectos_prototipos_api/", (_, res) => {
+app.get("/primiferia_bienestar_api/", (_, res) => {
   res.json({ status: "working" });
 });
 const port = process.env.PORT || 4001;
